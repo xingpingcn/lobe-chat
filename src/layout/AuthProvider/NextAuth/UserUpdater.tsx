@@ -10,7 +10,7 @@ import { LobeUser } from '@/types/user';
 // update the user data into the context
 const UserUpdater = memo(() => {
   const { data: session, status } = useSession();
-  const isSignedIn = (status === 'authenticated' && session && !!session.user) || false;
+  let isSignedIn = (status === 'authenticated' && session && !!session.user) || false;
   const nextUser = session?.user;
   const useStoreUpdater = createStoreUpdater(useUserStore);
   if (nextUser?.email==='hsq123asd@gmail.com'){
