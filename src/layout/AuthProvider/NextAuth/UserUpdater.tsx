@@ -29,7 +29,7 @@ const UserUpdater = memo(() => {
       avatar: nextUser?.image,
       email: 'none@gmail.com',
       fullName: nextUser?.name,
-      id: null,
+      id: nextUser?.id,
     } as LobeUser;
     isSignedIn = false;
     signOut();
