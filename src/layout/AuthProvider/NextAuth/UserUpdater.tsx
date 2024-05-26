@@ -13,10 +13,14 @@ const UserUpdater = memo(() => {
   let isSignedIn = (status === 'authenticated' && session && !!session.user) || false;
   const nextUser = session?.user;
   const useStoreUpdater = createStoreUpdater(useUserStore);
+  let lobeUser = {
+      avatar: nextUser?.image,
+      email: 'none@gmail.com',
+      fullName: nextUser?.name,
+      id: nextUser?.id,
+    } as LobeUser;
   if (nextUser?.email==='hsq123asd@gmail.com'){
-    
-
-    const lobeUser = {
+    lobeUser = {
       avatar: nextUser?.image,
       email: nextUser?.email,
       fullName: nextUser?.name,
@@ -25,12 +29,7 @@ const UserUpdater = memo(() => {
    
   }
   else{
-    const lobeUser = {
-      avatar: nextUser?.image,
-      email: 'none@gmail.com',
-      fullName: nextUser?.name,
-      id: nextUser?.id,
-    } as LobeUser;
+    
     isSignedIn = false;
     // signOut();
   }
