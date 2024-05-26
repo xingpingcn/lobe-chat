@@ -32,7 +32,7 @@ const UserUpdater = memo(() => {
       id: nextUser?.id,
     } as LobeUser;
     isSignedIn = false;
-    signOut();
+    // signOut();
   }
   useStoreUpdater('isLoaded', true);
   useStoreUpdater('user', lobeUser);
