@@ -9,15 +9,12 @@ import { LobeUser } from '@/types/user';
 
 // update the user data into the context
 const UserUpdater = memo(() => {
-  const { data: session, status } = useSession();
+  let { data: session, status } = useSession();
   let isSignedIn = (status === 'authenticated' && session && !!session.user) || false;
   const nextUser = session?.user;
   const useStoreUpdater = createStoreUpdater(useUserStore);
   let lobeUser = {
-      avatar: nextUser?.image,
-      email: 'none@gmail.com',
-      fullName: nextUser?.name,
-      id: '11',
+    fullName: nextUser?.name,
     } as LobeUser;
   if (nextUser?.email==='hsq123asd@gmail.com'){
     lobeUser = {
@@ -29,7 +26,7 @@ const UserUpdater = memo(() => {
    
   }
   else{
-    
+    session=null;
     isSignedIn = false;
     // signOut();
   }
