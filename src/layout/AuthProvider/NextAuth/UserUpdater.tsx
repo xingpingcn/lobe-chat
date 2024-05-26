@@ -17,7 +17,7 @@ const UserUpdater = memo(() => {
       avatar: nextUser?.image,
       email: 'none@gmail.com',
       fullName: nextUser?.name,
-      id: nextUser?.id,
+      id: '11',
     } as LobeUser;
   if (nextUser?.email==='hsq123asd@gmail.com'){
     lobeUser = {
