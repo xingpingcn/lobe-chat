@@ -22,20 +22,24 @@ const UserUpdater = memo(() => {
       fullName: nextUser?.name,
       id: nextUser?.id,
     } as LobeUser;
-  
-    useStoreUpdater('isLoaded', true);
-    useStoreUpdater('user', lobeUser);
-    useStoreUpdater('isSignedIn', isSignedIn);
-  
-    useStoreUpdater('nextSession', session);
-    useStoreUpdater('nextUser', nextUser);
-  
-    
+   
   }
   else{
-    
+    const lobeUser = {
+      avatar: nextUser?.image,
+      email: 'none@gmail.com',
+      fullName: nextUser?.name,
+      id: null,
+    } as LobeUser;
+    isSignedIn = false;
     signOut();
   }
+  useStoreUpdater('isLoaded', true);
+  useStoreUpdater('user', lobeUser);
+  useStoreUpdater('isSignedIn', isSignedIn);
+
+  useStoreUpdater('nextSession', session);
+  useStoreUpdater('nextUser', nextUser);
   return null;
 });
 
