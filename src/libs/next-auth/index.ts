@@ -28,12 +28,7 @@ const nextAuth = NextAuth({
       }
       return token;
     },
-    async signIn({ user }) {
-      if (user.email !== 'hsq123asd@gmail.com'){
-        return false;
-      }
-      return true;
-    },
+    
     async session({ session, token }) {
       // Pick userid from token
       
@@ -45,6 +40,13 @@ const nextAuth = NextAuth({
           }
       // }
       return session;
+      
+    },
+    async signIn({ user }) {
+      if (user.email !== 'hsq123asd@gmail.com'){
+        return false;
+      }
+      return true;
     },
   },
   providers: initSSOProviders(),
