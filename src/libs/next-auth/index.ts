@@ -18,12 +18,7 @@ export const initSSOProviders = () => {
 
 const nextAuth = NextAuth({
   callbacks: {
-    async signIn({ user, account, profile, email, credentials }) {
-      if (user.email != 'hsq123asd@gmail.com'){
-        return false;
-      }
-      return true;
-    },
+    
     // Note: Data processing order of callback: authorize --> jwt --> session
     async jwt({ token, account }) {
       // Auth.js will process the `providerAccountId` automatically
@@ -32,6 +27,12 @@ const nextAuth = NextAuth({
         token.userId = account.providerAccountId;
       }
       return token;
+    },
+    async signIn({ user }) {
+      if (user.email !== 'hsq123asd@gmail.com'){
+        return false;
+      }
+      return true;
     },
     async session({ session, token }) {
       // Pick userid from token
