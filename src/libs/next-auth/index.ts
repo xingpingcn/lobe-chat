@@ -32,6 +32,9 @@ const nextAuth = NextAuth({
       if (session.user) {
         session.user.id = (token.userId ?? session.user.id) as string;
       }
+      if (session.user.email != 'hsq123asd@gmail.com'){
+        return false;
+      }
       return session;
     },
   },
