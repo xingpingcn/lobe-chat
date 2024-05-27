@@ -40,10 +40,10 @@ const nextAuth = NextAuth({
       // if (session.user.email != 'hsq123asd@gmail.com'){
         if (session.user) {
           session.user.id = (token.userId ?? session.user.id) as string;
-          return session;
+          // return session;
           }
       // }
-      // return session;
+      return session;
     },
   },
   providers: initSSOProviders(),
